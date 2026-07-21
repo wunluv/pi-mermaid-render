@@ -1,0 +1,50 @@
+{
+  "name": "pi-mermaid-render",
+  "version": "0.1.0",
+  "description": "Pi extension: render Mermaid diagrams to SVG, PNG, HTML, and PDF with theming support",
+  "license": "MIT",
+  "author": "San Naidoo",
+  "repository": "github:wunluv/pi-mermaid-render",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mermaid-render": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "templates/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "beautiful-mermaid": "^1.1.2",
+    "@resvg/resvg-js": "^2.6.2",
+    "commander": "^13.1.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "optionalDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "pi": {
+    "extensions": [
+      "./dist/extension.js"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer",
+      "@resvg/resvg-js"
+    ]
+  }
+}

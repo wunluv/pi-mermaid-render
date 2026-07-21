@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Diagram</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --container-bg: {{CONTAINER_BG}};
+      --container-fg: {{CONTAINER_FG}};
+      --container-radius: 12px;
+      --container-padding: 2rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--container-bg);
+      color: var(--container-fg);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .diagram-container {
+      background: var(--container-bg);
+      border-radius: var(--container-radius);
+      padding: var(--container-padding);
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    {{THEME_STYLE_BLOCK}}
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .diagram-container {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+      }
+      .theme-picker { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    {{SVG_CONTENT}}
+  </div>
+</body>
+</html>
